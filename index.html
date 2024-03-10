@@ -6,33 +6,52 @@
     <title>LifeLogs - Document Your Journey</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">LifeLogs</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="images/lifelogs-logo.webp" alt="LifeLogs">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-globe" aria-hidden="true"></i>
+                        About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-id-card-o" aria-hidden="true"></i>
+                        Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login/Register</a>
+                    <a class="nav-link" href="login.html">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>    Login/Register</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div class="container mt-5">
-        <h1>Welcome to LifeLogs</h1>
-        <p>This is your space to document your journey and share your experiences. Start your own log today and keep track of your life's adventures.</p>
+    <div class="container-fluid banner-container">
+        <div class="row">
+            <div class="col-12 banner">
+                <div class="logo-text-wrapper">
+                    <img src="images/lifelogs-logo.webp" alt="LifeLogs" class="img-fluid logo">
+                    <div class="header-text">
+                        <h1>We only live once,</h1>
+                        <p>so why not share the tales of an amazing journey we have.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>

@@ -9,23 +9,24 @@
 </head>
 <body>
     <div class="container">
-        <h2 class="mt-5">Login to LifeLogs</h2>
-        <form action="/path/to/authentication" method="post">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+        <div class="form-box">
+            <a href="index.html">
+                <img src="images/lifelogs-logo.webp" alt="LifeLogs" class="login-logo">
+            </a>
+            <form action="/path/to/authentication" method="post">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <div class="mt-3">
+                <p>Don't have an account? <a href="registration.html">Register</a></p>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-        <div class="mt-3">
-            <p>Don't have an account? <a href="registration.html">Register</a></p>
-        </div>
-        <div class="mt-3">
-            <a href="index.html" class="back-to-homepage">Back to Homepage</a>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
