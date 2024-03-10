@@ -13,3 +13,22 @@ p {
 .navbar-brand {
     font-weight: bold;
 }
+
+.back-to-homepage {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-to-homepage:hover {
+    background-color: #0056b3;
+    color: #fff;
+    text-decoration: none;
+}
