@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Title | LifeLogs</title>
+    <title>About | LifeLogs</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/style.css" rel="stylesheet">
 </head>
@@ -28,11 +28,6 @@
                         About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-id-card-o" aria-hidden="true"></i>
-                        Contact</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="login.html">
                         <i class="fa fa-sign-in" aria-hidden="true"></i>    Login/Register</a>
                 </li>
@@ -40,27 +35,37 @@
         </div>
     </nav>
 
-    <div class="container mt-5 mb-5">
-        <div class="row">
-            <div class="col-lg-8">
-                <article class="blog-post">
-                    <header class="blog-post-header">
-                        <h1 class="title">Quick peek inside of my little garden</h1>
-                        <div class="meta">
-                            <a href="#"><img src="images/avatar.jpg" alt="Author's avatar" class="author-avatar"></a>
-                            <p>Posted by <a href="#">Jennifer Farrah</a> on <time datetime="YYYY-MM-DD">2023-12-11</time></p>
-                        </div>
-                    </header>
-                    <figure class="blog-post-image">
-                        <img src="images/gardening.jpg" alt="Related to topic" class="img-fluid">
-                        <figcaption>Caption for the image.</figcaption>
-                    </figure>
-                    <section class="blog-post-content">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque eligendi quaerat, est non ex dignissimos enim beatae. Dicta iusto veritatis minus illo expedita modi incidunt? Rem natus accusantium ab voluptatem.</p>
-                    </section>
-                </article>
+    <!-- FAQ Section -->
+    <div class="container my-5">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div id="faq-accordion">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            How do I start documenting my journey on LifeLogs?
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faq-accordion">
+                    <div class="card-body">
+                        Starting is easy! Just register for an account, and you can begin creating your first log immediately. Share your thoughts, stories, and adventures with the world or keep them private for your own reflection.
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="container my-5">
+        <h2>Contact Information</h2>
+        <p>If you have any questions or feedback, feel free to reach out to us:</p>
+        <ul>
+            <li>Email: contact@lifelogs.com</li>
+            <li>Phone: +1 (555) 123-4567</li>
+            <li>Address: 123 LifeLogs Way, Journal City, Storyland</li>
+        </ul>
     </div>
 
     <section class="call-to-action py-5">
