@@ -44,10 +44,6 @@ p {
     margin: 0 auto 20px; 
 }
 
-.navbar-brand {
-    font-weight: bold;
-}
-
 .container-fluid.banner-container {
     padding: 0; 
     margin-top: 30px; 
@@ -87,7 +83,6 @@ p {
 @media (min-width: 992px) {
     .logo-text-wrapper {
         flex-direction: row; 
-        justify-content: space-evenly;
     }
 
     .header-text {
@@ -110,3 +105,40 @@ p {
     max-width: 100%;
     height: auto;
 }
+
+/* Featured Stories Section */
+.featured-stories h2 {
+    color: #333;
+}
+
+/* Latest Entries Section */
+.latest-entries h2 {
+    color: #333;
+}
+
+/* Call to Action Section */
+.call-to-action {
+    background-color: #333;
+    color: white;
+}
+
+.call-to-action h2 {
+    margin-bottom: 1rem;
+}
+
+.call-to-action p {
+    margin-bottom: 2rem;
+}
+
+.call-to-action .btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.call-to-action .btn-success:hover {
+    color: #fff;
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
