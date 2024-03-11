@@ -142,3 +142,49 @@ p {
     border-color: #1e7e34;
 }
 
+.blog-post-header {
+    margin-bottom: 2rem;
+}
+
+.blog-post-header .title {
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.blog-post-header .meta {
+    margin-bottom: 1rem;
+    color: #6c757d;
+    font-style: italic;
+}
+
+.blog-post-header .meta a {
+    color: #007bff;
+}
+
+.blog-post-header .author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.blog-post-image {
+    margin-bottom: 2rem;
+}
+
+.blog-post-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.blog-post-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Footer Styles */
+.footer {
+    padding: 2rem 0;
+    text-align: center;
+    color: #6c757d;
+}
