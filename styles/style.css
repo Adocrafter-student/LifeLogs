@@ -1,5 +1,13 @@
+html, body {
+    padding-top: 0px;
+    height: 100%;
+    margin: 0;
+}
+
 body {
-    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 h1 {
@@ -8,6 +16,10 @@ h1 {
 
 p {
     font-size: 18px;
+}
+
+.content {
+    flex: 1;
 }
 
 .navbar {
@@ -172,6 +184,12 @@ p {
         color: #fff;
         background-color: #6A985D !important;
         border-color: #6A985D !important;
+}
+
+.footer, .call-to-action {
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
 }
 
 .btn-success {
