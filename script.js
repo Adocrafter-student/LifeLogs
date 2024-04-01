@@ -1,81 +1,66 @@
 window.onload = function() {
-    let basePath = window.location.href.includes('localhost') ? '/LifeLogs/#/' : '/#/';
-    
     ensureAdminUser();
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    
-    function updateNavigationState(currentUser) {
-        // Dynamically update navbar based on user's login state
-        document.querySelectorAll('a[href^="#/"]').forEach(link => {
-            let pageName = link.getAttribute('href').replace('#/', '');
-            if (pageName === 'profile' && !currentUser) {
-                link.setAttribute('href', '#/login');
-            } else {
-                link.setAttribute('href', `#/${pageName}`);
-            }
-        });
-    }
-
-    updateNavigationState(currentUser);
 
     function navigateTo(page) {
-        window.location.hash = page;
+        window.location.hash = `#/${page}`;
     }
 
-    function handleNavigation(pageName, currentUser) {
+    function handleNavigation() {
+        const pageName = window.location.hash.replace('#/', '') || 'featured';
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    
         if (pageName === 'profile' && !currentUser) {
             navigateTo('login');
-            return;
+        } else {
+            loadPage(pageName);
         }
-        loadPage(pageName);
     }
-
     function loadPage(page) {
         const container = document.getElementById("container");
-        const url = `${basePath}${page}.html`.replace('/#/', '/');
+        const basePath = window.location.href.includes('localhost') ? '/LifeLogs/' : '/';
+        const url = `${basePath}${page}.html`;
+    
         fetch(url).then(response => {
-            if (response.status === 200) {
+            if (response.ok) {
                 return response.text();
+            } else {
+                return fetch(`${basePath}404.html`).then(response => response.ok ? response.text() : 'Page not found');
             }
-            return fetch(`${basePath}404.html`).then(response => response.text());
         }).then(html => {
             container.innerHTML = html;
             document.title = page.charAt(0).toUpperCase() + page.slice(1) + " | LifeLogs";
             if (page === 'login' || page === 'registration') {
                 attachFormListener(page);
             }
+            attachLogoutListener(); 
         }).catch(error => {
             console.error('Failed to load page', error);
+            container.innerHTML = 'Error loading page.';
         });
     }
 
     document.querySelectorAll("a.nav-link, a[href^='#']").forEach(link => {
         link.addEventListener("click", function(event) {
             event.preventDefault();
-            let pageName = this.getAttribute("href").replace('#/', '');
+            const pageName = this.getAttribute("href").replace('#/', '');
             navigateTo(pageName);
         });
     });
 
-    window.addEventListener('hashchange', function() {
-        let page = window.location.hash.replace('#/', '') || 'featured';
-        handleNavigation(page, currentUser);
-    });
-
-    // Load the initial page based on the current URL hash
-    let initialPage = window.location.hash.replace('#/', '') || 'featured';
-    handleNavigation(initialPage, currentUser);
+    window.addEventListener('hashchange', handleNavigation);
+    handleNavigation();
 
     function handleAuth(page, userDetails) {
         let users = JSON.parse(localStorage.getItem('users')) || [];
         let userExists = users.some(user => user.username === userDetails.username);
-
+    
         if (page === 'login') {
             let validLogin = users.some(user => user.username === userDetails.username && user.password === userDetails.password);
             if (validLogin) {
                 localStorage.setItem('currentUser', JSON.stringify({username: userDetails.username, email: userDetails.email}));
                 alert('Login successful');
-                window.location.hash = '#/profile';
+                navigateTo('profile'); // Navigate to profile page after login
             } else {
                 alert('Invalid credentials');
             }
@@ -84,19 +69,13 @@ window.onload = function() {
                 users.push(userDetails);
                 localStorage.setItem('users', JSON.stringify(users));
                 alert('Registration successful. Please log in.');
-                window.location.hash = '#/login';
+                navigateTo('login');
             } else {
                 alert('User already exists.');
             }
         }
     }
 
-    function updateNavigationState(currentUser) {
-        // Dynamically update navbar based on user's login state
-        document.querySelectorAll('a[href="/profile"]').forEach(link => {
-            link.setAttribute('href', currentUser ? '#/profile' : '#/login');
-        });
-    }
 
     function ensureAdminUser() {
         let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -122,4 +101,15 @@ window.onload = function() {
             });
         }
     }
+
+    function attachLogoutListener() {
+        const logoutButton = document.getElementById('logoutButton');
+        if (logoutButton) {
+            logoutButton.addEventListener('click', function() {
+                localStorage.removeItem('currentUser'); // Clear current user session
+                navigateTo('login'); // Redirect to login page
+            });
+        }
+    }
+    
 };
