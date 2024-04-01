@@ -4,12 +4,12 @@ window.onload = function() {
     let pageFromHash = window.location.hash.replace('#/', '') || 'featured';
     handleNavigation(pageFromHash);
 
-    document.querySelectorAll("a.nav-link").forEach(link => {
+    document.querySelectorAll("a.nav-link, a[href^='#']").forEach(link => {
         link.addEventListener("click", function(event) {
             event.preventDefault();
-            let newHash = this.getAttribute("href").replace('./', '');
+            let newHash = this.getAttribute("href").replace('./', '').replace('.html', '');
             window.location.hash = newHash;
-            let pageName = newHash.replace('#/', '').replace('.html', '') || 'featured';
+            let pageName = newHash.replace('#/', '') || 'featured';
             handleNavigation(pageName);
         });
     });
@@ -25,7 +25,8 @@ window.onload = function() {
 
     function loadPage(page) {
         const container = document.getElementById("container");
-        const url = `${window.location.origin}${basePath}${page}.html`.replace('#/', '');
+        const pageFileName = page === 'registration' ? 'registration' : page;
+        const url = `${window.location.origin}${basePath}${pageFileName}.html`.replace('#/', '');
         fetch(url).then(response => {
             if (response.status === 200) {
                 return response.text();
